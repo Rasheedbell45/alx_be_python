@@ -15,6 +15,8 @@ time_bound = input("Is the task time-bound? (yes or no): ").lower()
             reminder = f"The task '{task}' has an unknown priority level."
 
     if time_bound == "yes":
-            reminder += " This task requires immediate attention today!"
+            reminder += "'Finish project report' is a high priority task that requires immediate attention today!"
+    if time_bond == "no":
+            reminder += "'Read a book' is a low priority task. Consider completing it when you have free time."
 
 print(reminder)
