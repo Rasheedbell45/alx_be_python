@@ -1,7 +1,7 @@
 # shopping_list_manager.py
 
 def display_menu():
-    print("\nShopping List Manager")
+    print("Shopping List Manager")  # Required exact phrase
     print("1. Add item")
     print("2. Remove item")
     print("3. View shopping list")
@@ -33,11 +33,11 @@ def view_list(shopping_list):
 
 def main():
     shopping_list = []
-    
+
     while True:
         display_menu()
         choice = input("Choose an option (1-4): ").strip()
-        
+
         if choice == '1':
             add_item(shopping_list)
         elif choice == '2':
