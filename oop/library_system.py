@@ -1,3 +1,4 @@
+# Base Class
 class Book:
     def __init__(self, title, author, publication_year):
         self.title = title
@@ -10,12 +11,12 @@ class Book:
 
 # Derived Class: PrintBook
 class PrintBook(Book):
-    def __init__(self, title, author, publication_year, pages):
+    def __init__(self, title, author, publication_year, page_count):
         super().__init__(title, author, publication_year)
-        self.pages = pages
+        self.page_count = page_count
 
     def __str__(self):
-        return f"Print Book: {super().__str__()} - {self.pages} pages"
+        return f"Print Book: {super().__str__()} - {self.page_count} pages"
 
 
 # Derived Class: EBook
