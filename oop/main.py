@@ -16,24 +16,17 @@ def main():
 if __name__ == "__main__":
     main()
     
-from library_system import Book, EBook, PrintBook, Library
+from books import Book, EBook, PrintBook
 
 def main():
-    # Create a Library instance
-    my_library = Library()
+    classic_book = Book("Pride and Prejudice", "Jane Austen", 1813)
+    classic_book.display()
 
-    # Create instances of each type of book
-    classic_book = Book("Pride and Prejudice", "Jane Austen")
-    digital_novel = EBook("Snow Crash", "Neal Stephenson", 500)
-    paper_novel = PrintBook("The Catcher in the Rye", "J.D. Salinger", 234)
+    ebook = EBook("Snow Crash", "Neal Stephenson", 1992, "500KB")
+    ebook.display()
 
-    # Add books to the library
-    my_library.add_book(classic_book)
-    my_library.add_book(digital_novel)
-    my_library.add_book(paper_novel)
-
-    # List all books in the library
-    my_library.list_books()
+    print_book = PrintBook("The Catcher in the Rye", "J.D. Salinger", 1951, 234)
+    print_book.display()
 
 if __name__ == "__main__":
     main()
