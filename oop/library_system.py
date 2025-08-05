@@ -1,41 +1,28 @@
-# Base class
 class Book:
-    def __init__(self, title, author):
+    def __init__(self, title, author, publication_year):
         self.title = title
         self.author = author
+        self.publication_year = publication_year
 
-    def get_details(self):
-        return f"Book: {self.title} by {self.author}"
+    def __str__(self):
+        return f"'{self.title}' by {self.author} ({self.publication_year})"
 
-# Derived class - EBook
-class EBook(Book):
-    def __init__(self, title, author, file_size):
-        super().__init__(title, author)
-        self.file_size = file_size  # in KB
 
-    def get_details(self):
-        return f"EBook: {self.title} by {self.author}, File Size: {self.file_size}KB"
-
-# Derived class - PrintBook
+# Derived Class: PrintBook
 class PrintBook(Book):
-    def __init__(self, title, author, page_count):
-        super().__init__(title, author)
-        self.page_count = page_count
+    def __init__(self, title, author, publication_year, pages):
+        super().__init__(title, author, publication_year)
+        self.pages = pages
 
-    def get_details(self):
-        return f"PrintBook: {self.title} by {self.author}, Page Count: {self.page_count}"
+    def __str__(self):
+        return f"Print Book: {super().__str__()} - {self.pages} pages"
 
-# Composition - Library class
-class Library:
-    def __init__(self):
-        self.books = []  # list of Book, EBook, or PrintBook objects
 
-    def add_book(self, book):
-        if isinstance(book, Book):
-            self.books.append(book)
-        else:
-            print("Only Book or derived types can be added to the library.")
+# Derived Class: EBook
+class EBook(Book):
+    def __init__(self, title, author, publication_year, file_size_mb):
+        super().__init__(title, author, publication_year)
+        self.file_size_mb = file_size_mb
 
-    def list_books(self):
-        for book in self.books:
-            print(book.get_details())
+    def __str__(self):
+        return f"E-Book: {super().__str__()} - {self.file_size_mb}MB"
